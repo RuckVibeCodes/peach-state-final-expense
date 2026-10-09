@@ -3,9 +3,11 @@ import Link from "next/link";
 export default function QuoteCta({
   title = "Explore what fits your family",
   body = "Understand your choices and take the next step at your own pace.",
+  label = "Request information",
 }: {
   title?: string;
   body?: string;
+  label?: string;
 }) {
   return (
     <section className="article-cta">
@@ -17,7 +19,7 @@ export default function QuoteCta({
         href="/quote"
         className="premium-button mt-8"
       >
-        Request information
+        {label}
       </Link>
     </section>
   );

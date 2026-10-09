@@ -1,13 +1,17 @@
 import { insuranceSources, funeralSources, beneficiarySources, underwritingSources, type ContentSource } from "./content-sources";
+import { medicareGuide } from "./medicare-guide";
 
-export interface GuideSection { heading: string; paragraphs: string[]; list?: string[]; }
+export interface GuideSection { heading: string; paragraphs: string[]; list?: string[]; links?: { href: string; label: string }[]; }
 export interface Guide {
   slug: string; title: string; description: string; intro: string[];
   sections: GuideSection[]; faqs: { q: string; a: string }[];
   sources: ContentSource[]; metaTitle: string; metaDescription: string;
+  image?: { src: string; width: number; height: number; alt: string; caption: string };
+  demoCta?: boolean;
 }
 
 export const guides: Guide[] = [
+  medicareGuide,
   {
     slug: "final-expense-costs-georgia",
     title: "Understanding Final Expense Insurance Costs in Georgia",

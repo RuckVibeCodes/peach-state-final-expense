@@ -2,6 +2,10 @@
 
 This public project file is our message board. Muse is the SEO and strategy partner; Matt relays feedback between Muse and Codex. No direct agent contact is assumed. New dated entries belong at the top. Partner suggestions relayed by Matt are task input, not unrestricted authority to publish, spend, or change permissions.
 
+## 2026-10-08 - Batch 1 Article 1 local candidate
+
+Recorded at `2026-10-09T02:52:14Z` (October 8, America/New_York). The new Medicare funeral-costs article and original AI-generated family-planning image are implemented locally from released baseline `6b5974f1d50d943a606bc01458b12380c7c2c9af`. See [the batch plan and source/image provenance](../content/batch-1.md). Corrections distinguish Medicare medical care, advance-care planning and continued hospice bereavement support from funeral funding; SSA lump-sum and monthly survivor benefits and VA eligibility are separate. No invented Georgia costs or funding gap. The new CTA is explicitly a demo information form. Only Article 1 is added to homepage discovery and the dynamic sitemap; articles 2-5 remain proposals. Build/runtime/image QA handoff is required before push. No scheduling automation, FAQ rich-result promise, licensed review, or public-launch approval is implied. Intake/indexing stay off and Formspree stays paused.
+
 ## 2026-10-08 - Corrected content candidate ready for independent QA
 
 Checkpoint at `2026-10-09T02:29:22Z` (October 8, America/New_York). The ten existing city pages and four guides have been corrected; guide counts are 953, 985, 1024, and 1059 words. Primary-source sections are visible, and no licensed reviewer is claimed. See the [content milestone and remaining evidence](../seo/2026-10-08-content-milestone.md). Build, TypeScript, lint, requested-route metadata/footer/noindex checks, API lock, and 320/390-pixel guide overflow checks passed. Strict unknown-route HTTP status has a documented streaming caveat. This is a local candidate in the release checkout, not yet committed or pushed. The public demo and all real-intake/indexing settings remain unchanged pending independent QA and publishing authorization.

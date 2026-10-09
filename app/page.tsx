@@ -59,6 +59,7 @@ export default function Home() {
     <section className="learn-band" aria-labelledby="learn-title"><div className="modern-container modern-section">
       <div className="section-heading"><div><p className="eyebrow">Make room for an informed decision</p><h2 id="learn-title">A little knowledge goes a long way.</h2></div></div>
       <div className="guide-grid">{[
+        { label: "Planning ahead", title: "Does Medicare cover funeral costs?", href: "/guides/does-medicare-cover-funeral-costs", description: "Health coverage, survivor benefits, and funeral funding are different." },
         { label: "The essentials", title: "How final expense insurance works", href: "/guides/how-final-expense-works", description: "Coverage, applications, and benefits explained." },
         { label: "Your budget", title: "Understanding costs in Georgia", href: "/guides/final-expense-costs-georgia", description: "What affects premiums and how to compare." },
         { label: "Your choices", title: "Term life or final expense?", href: "/guides/term-vs-final-expense", description: "Two kinds of protection. Different purposes." },

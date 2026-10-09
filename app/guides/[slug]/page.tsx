@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import QuoteCta from "@/components/QuoteCta";
@@ -42,6 +43,7 @@ function articleSchema(guide: (typeof guides)[number]) {
     author: { "@type": "Organization", name: SITE_NAME },
     publisher: { "@type": "Organization", name: SITE_NAME },
     mainEntityOfPage: canonical(`/guides/${guide.slug}`),
+    ...(guide.image ? { image: canonical(guide.image.src) } : {}),
   };
 }
 
@@ -71,6 +73,12 @@ export default async function GuidePage({
           {guide.title}
         </h1>
         <p className="mt-4 text-xl leading-relaxed text-ink-500">{guide.description}</p>
+        {guide.image && <figure className="mt-8">
+          <Image src={guide.image.src} width={guide.image.width} height={guide.image.height}
+            alt={guide.image.alt} sizes="(max-width: 1008px) calc(100vw - 45px), 963px"
+            className="h-auto w-full rounded-lg" />
+          <figcaption className="mt-3 text-lg leading-relaxed text-ink-500">{guide.image.caption}</figcaption>
+        </figure>}
 
         <div className="prose-senior mt-8 text-xl text-ink-700">
           {guide.intro.map((p, i) => (
@@ -90,12 +98,15 @@ export default async function GuidePage({
                   ))}
                 </ul>
               )}
+              {s.links?.map(link => <p key={link.href}><Link href={link.href} className="underline text-brand-700">{link.label}</Link></p>)}
             </section>
           ))}
         </div>
 
         <div className="mt-12">
-          <QuoteCta />
+          {guide.demoCta ? <QuoteCta title="Explore the demo at your own pace"
+            body="This prelaunch form uses fictional sample details. It sends and saves nothing, provides no quote, and does not request follow-up."
+            label="View demo information form" /> : <QuoteCta />}
         </div>
 
         {guide.faqs.length > 0 && (

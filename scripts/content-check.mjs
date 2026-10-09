@@ -28,11 +28,12 @@ for (const guide of guides) {
     ...guide.faqs.flatMap(faq => [faq.q, faq.a])];
   const count = parts.join(" ").trim().split(/\s+/).length;
   assert(count >= 800 && count <= 1500, `${guide.slug}: ${count} words`);
+  if (guide.slug === "does-medicare-cover-funeral-costs") assert(count >= 900 && count <= 1200, `${guide.slug}: ${count} words`);
   report.wordCounts[guide.slug] = count;
   assert(guide.sources.length > 0);
 }
 assert.equal(cities.length, 10);
-assert.equal(guides.length, 4);
+assert.equal(guides.length, 5);
 const prose = JSON.stringify([...guides, ...cities]);
 for (const pattern of [/approval is automatic/i, /most of our .*clients/i,
   /families we talk to/i, /pays regardless of cause/i, /locks your money/i,
@@ -77,8 +78,18 @@ assert.equal((await fetch(`${origin}/sitemap.xml`)).status, 200);
 assert.equal((await fetch(`${origin}/api/quote`, {
   method: "POST", headers: { "Content-Type": "application/json" }, body: "{",
 })).status, 403);
-report.safeguards = ["17 routes, unique metadata/canonicals, one H1, exact footer, noindex",
-  "14 city/guide source sections and Article schema", "unknown city/guide not-found UI and noindex; see actual statuses",
+const newRoute = "/guides/does-medicare-cover-funeral-costs";
+const article = await (await fetch(`${origin}${newRoute}`)).text();
+for (const href of ["/guides/how-final-expense-works", "/guides/final-expense-costs-georgia", "/quote"]) assert(article.includes(`href="${href}"`));
+assert(article.includes("View demo information form") && article.includes("fictional people"));
+assert(article.includes("family-planning-medicare.webp") && article.includes('width="1600"') && article.includes('height="800"'));
+assert((await (await fetch(origin)).text()).includes(`href="${newRoute}"`));
+const sitemap = await (await fetch(`${origin}/sitemap.xml`)).text();
+assert(sitemap.includes(newRoute));
+for (const future of ["cremation-costs-georgia", "final-expense-waiting-period", "dying-without-life-insurance-georgia", "no-medical-exam-life-insurance-georgia"]) assert(!sitemap.includes(future));
+report.safeguards = ["18 routes, unique metadata/canonicals, one H1, exact footer, noindex",
+  "15 city/guide source sections and Article schema", "unknown city/guide not-found UI and noindex; see actual statuses",
+  "new guide contextual links, demo CTA, image dimensions, homepage discovery and sitemap; future articles absent",
   "robots Disallow /", "sitemap 200", "malformed synthetic API request 403 before parsing"];
 fs.mkdirSync("artifacts", { recursive: true });
 fs.writeFileSync("artifacts/CONTENT_CHECK_RESULTS.json", JSON.stringify(report, null, 2) + "\n");
