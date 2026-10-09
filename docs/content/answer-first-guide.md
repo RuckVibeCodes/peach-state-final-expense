@@ -1,6 +1,10 @@
 # Answer-First Guide
 
-Matt approved this milestone after Article 1 was published. Source baseline: `757c718ecf460845e080851defdf36a180c03cf3`. Current implementation is local and needs independent QA before push.
+Matt approved this milestone after Article 1 was published. Source baseline: `757c718ecf460845e080851defdf36a180c03cf3`. The candidate is on the `answer-first-preview` branch. Matt subsequently authorized publishing the cleanup to the main public site after independent QA passes. Indexing and real intake remain disabled.
+
+## Lasting Editorial Standard
+
+Matt wants the site and each article edited as professional consumer publishing. Open with the answer or a concrete planning question, use clear headings and short useful paragraphs, and connect ideas naturally. Explain relevant facts directly rather than promising simple language. Remove filler, repetitive disclaimers and production commentary from informational copy. Preserve sources, material qualifications and the exact required footer. Keep contact status truthful at the contact step. Never invent biography, licensing, business details, prices, partnerships or outcomes. Review every future article against this standard before independent QA and release.
 
 ## Visitor Experience
 

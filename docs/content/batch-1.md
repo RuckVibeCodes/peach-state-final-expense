@@ -6,6 +6,8 @@ Parent scheduled bounded work sessions on Monday/Thursday afternoons October 12,
 
 ## Proposed Order
 
+Every brief follows Matt's lasting professional-editor standard: a direct, useful opening; clear heading hierarchy; short substantive paragraphs; natural transitions; no word-count padding, promises of simple language or production commentary. Keep verified facts, primary sources, material limitations and truthful contact status. Apply an editorial pass before independent QA; do not turn educational explanations into price, approval or carrier-partnership claims.
+
 1. `/guides/does-medicare-cover-funeral-costs`: published after independent QA.
 2. `/guides/cremation-costs-georgia`: planned, not implemented.
 3. `/guides/final-expense-waiting-period`: planned, not implemented.
@@ -20,7 +22,7 @@ Medicare health coverage is not a funeral-expense benefit. Do not conflate medic
 
 Primary references were accessed October 8, 2026 in America/New_York (October 9 UTC): Medicare coverage pages and health-coverage overview; CMS Benefit Policy Manual chapter 9, section 40.2.3; SSA lump-sum and survivor pages; VA allowance and national-cemetery pages; FTC funeral-planning/provider pages; Georgia OCI life-insurance guidance. These are linked in the article. The health-versus-funeral distinction synthesizes the scope of these sources; it is not a quoted standalone Medicare funeral-benefit ruling. No narrow Medicare Advantage rule is substituted for the general Medicare explanation.
 
-No Georgia funeral average, policy price, approval guarantee, claim speed, licensed review, carrier partnership, or government endorsement is claimed. The article presents savings, existing insurance, specific policy terms, prepaid contracts, and possible assistance as alternatives. Its CTA explicitly identifies a fictional, browser-only demo information form, not a quote or callback request.
+No Georgia funeral average, policy price, approval guarantee, claim speed, licensed review, carrier partnership, or government endorsement is claimed. The article presents savings, existing insurance, specific policy terms, prepaid contracts, and possible assistance as alternatives. Its updated CTA leads to the educational starting-point guide before optional contact; contact requests remain inactive and are identified truthfully at that step.
 
 ## Original Article Visual
 
