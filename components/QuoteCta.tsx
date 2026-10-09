@@ -4,10 +4,12 @@ export default function QuoteCta({
   title = "Explore what fits your family",
   body = "Understand your choices and take the next step at your own pace.",
   label = "Request information",
+  href = "/quote",
 }: {
   title?: string;
   body?: string;
   label?: string;
+  href?: string;
 }) {
   return (
     <section className="article-cta">
@@ -16,7 +18,7 @@ export default function QuoteCta({
         {body}
       </p>
       <Link
-        href="/quote"
+        href={href}
         className="premium-button mt-8"
       >
         {label}

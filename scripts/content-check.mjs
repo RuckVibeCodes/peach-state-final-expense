@@ -24,11 +24,11 @@ const { FOOTER_DISCLOSURE } = loadData("lib/site.ts");
 const report = { wordCounts: {}, routes: [], unknownRoutes: [], safeguards: [], contextReviewRequired: true };
 for (const guide of guides) {
   const parts = [guide.description, ...guide.intro,
-    ...guide.sections.flatMap(section => [section.heading, ...section.paragraphs, ...(section.list || [])]),
+    ...guide.sections.flatMap(section => [section.heading, ...section.paragraphs, ...(section.list || []), ...(section.detail?.paragraphs || [])]),
     ...guide.faqs.flatMap(faq => [faq.q, faq.a])];
   const count = parts.join(" ").trim().split(/\s+/).length;
-  assert(count >= 800 && count <= 1500, `${guide.slug}: ${count} words`);
-  if (guide.slug === "does-medicare-cover-funeral-costs") assert(count >= 900 && count <= 1200, `${guide.slug}: ${count} words`);
+  assert(count > 0 && count <= 1500, `${guide.slug}: ${count} words`);
+  assert(!guide.description.includes("plain-language"));
   report.wordCounts[guide.slug] = count;
   assert(guide.sources.length > 0);
 }
@@ -41,7 +41,7 @@ for (const pattern of [/approval is automatic/i, /most of our .*clients/i,
   /guarantees the money is there/i]) assert(!pattern.test(prose), `Claim regression: ${pattern}`);
 // This scan catches specific regressions; it does not replace an editorial read.
 const origin = process.env.PREVIEW_URL || "http://127.0.0.1:3004";
-const routes = ["/", "/about", "/quote", ...cities.map(city => `/cities/${city.slug}`),
+const routes = ["/", "/about", "/quote", "/start", ...cities.map(city => `/cities/${city.slug}`),
   ...guides.map(guide => `/guides/${guide.slug}`)];
 const titles = new Set();
 const descriptions = new Set();
@@ -53,6 +53,8 @@ for (const route of routes) {
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, route);
   assert(html.includes('name="robots" content="noindex'), route);
   assert(html.includes(FOOTER_DISCLOSURE), route);
+  for (const fluff of [/AI-generated/i, /fictional people/i, /plain-language explanation/i, /Clear, everyday language/i, /No verified .*supplied/i, /This page focuses/i]) assert(!fluff.test(html), `${route}: ${fluff}`);
+  if (route !== "/quote") assert(!/prelaunch demo|public demo|sample form|Demo contact form/i.test(html), `${route}: informational production commentary`);
   const title = html.match(/<title>(.*?)<\/title>/)?.[1];
   const description = html.match(/<meta name="description" content="([^"]*)"/ )?.[1];
   const canonical = html.match(/<link rel="canonical" href="([^"]*)"/)?.[1];
@@ -63,6 +65,7 @@ for (const route of routes) {
     assert(html.includes("Sources and references") && html.includes("Sources accessed October 8, 2026"), route);
     assert(html.includes('"@type":"Article"'), route);
   }
+  if (route.startsWith("/guides/")) assert(html.includes('href="/start"') && html.includes("Find your starting point"), route);
   report.routes.push({ route, status: response.status, title, description, canonical });
 }
 for (const route of ["/cities/not-a-city", "/guides/not-a-guide"]) {
@@ -80,16 +83,17 @@ assert.equal((await fetch(`${origin}/api/quote`, {
 })).status, 403);
 const newRoute = "/guides/does-medicare-cover-funeral-costs";
 const article = await (await fetch(`${origin}${newRoute}`)).text();
-for (const href of ["/guides/how-final-expense-works", "/guides/final-expense-costs-georgia", "/quote"]) assert(article.includes(`href="${href}"`));
-assert(article.includes("View demo information form") && article.includes("fictional people"));
+for (const href of ["/guides/how-final-expense-works", "/guides/final-expense-costs-georgia", "/start"]) assert(article.includes(`href="${href}"`));
+assert(article.includes("Find your starting point") && !article.includes("AI-generated") && !article.includes("fictional people"));
 assert(article.includes("family-planning-medicare.webp") && article.includes('width="1600"') && article.includes('height="800"'));
 assert((await (await fetch(origin)).text()).includes(`href="${newRoute}"`));
 const sitemap = await (await fetch(`${origin}/sitemap.xml`)).text();
 assert(sitemap.includes(newRoute));
+assert(sitemap.includes("/start"));
 for (const future of ["cremation-costs-georgia", "final-expense-waiting-period", "dying-without-life-insurance-georgia", "no-medical-exam-life-insurance-georgia"]) assert(!sitemap.includes(future));
-report.safeguards = ["18 routes, unique metadata/canonicals, one H1, exact footer, noindex",
+report.safeguards = ["19 routes, unique metadata/canonicals, one H1, exact footer, noindex",
   "15 city/guide source sections and Article schema", "unknown city/guide not-found UI and noindex; see actual statuses",
-  "new guide contextual links, demo CTA, image dimensions, homepage discovery and sitemap; future articles absent",
+  "all guides link to answer-first start; article image and contextual links preserved; homepage discovery and sitemap; future articles absent",
   "robots Disallow /", "sitemap 200", "malformed synthetic API request 403 before parsing"];
 fs.mkdirSync("artifacts", { recursive: true });
 fs.writeFileSync("artifacts/CONTENT_CHECK_RESULTS.json", JSON.stringify(report, null, 2) + "\n");

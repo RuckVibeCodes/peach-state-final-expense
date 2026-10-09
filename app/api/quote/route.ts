@@ -29,7 +29,7 @@ function isValidEmail(email: string): boolean {
 export async function POST(request: Request) {
   // Reject hosted intake before reading a request body or contact details.
   if (!ALLOW_SYNTHETIC_LEADS) {
-    return NextResponse.json({ error: "Contact requests are unavailable in this demo." }, { status: 403 });
+    return NextResponse.json({ error: "Contact requests are not available yet." }, { status: 403 });
   }
   let body: QuotePayload;
   try {

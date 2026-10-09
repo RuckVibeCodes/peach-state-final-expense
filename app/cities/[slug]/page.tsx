@@ -93,8 +93,9 @@ export default async function CityPage({
 
         <div className="mt-12">
           <QuoteCta
-            title={`Explore coverage for ${city.name} families`}
-            body="Learn about final expense coverage and the questions to ask before choosing a policy."
+            title="Consider your next step"
+            body="Start with your priorities and the coverage you already have."
+            label="Find your starting point" href="/start"
           />
         </div>
 
@@ -111,7 +112,7 @@ export default async function CityPage({
 
         <section aria-labelledby="more-cities" className="mt-14">
           <h2 id="more-cities" className="text-2xl font-bold text-ink-900">
-            Also serving nearby communities
+            Nearby communities
           </h2>
           <ul className="mt-4 flex flex-wrap gap-3">
             {otherCities.map((c) => (

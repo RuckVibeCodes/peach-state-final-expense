@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { CONSENT_TEXT } from "@/lib/site";
 
 type Errors = Record<string, string>;
 const sample = { fullName: "Jordan Example", phone: "202-555-0147", email: "jordan@example.com", cityZip: "Dacula, GA 30019" };
@@ -37,13 +36,13 @@ export default function QuoteForm() {
     return { "aria-invalid": Boolean(errors[name]), "aria-describedby": errors[name] ? `${name}-error` : undefined };
   }
   if (submitted) return <section className="demo-success" aria-label="Request confirmation">
-    <p className="demo-label">Demo</p><h2 ref={successRef} tabIndex={-1}>You&apos;re one step closer to clarity.</h2>
-    <p>Your sample request is complete. Nothing was sent or saved, and no one will contact you.</p>
+    <h2 ref={successRef} tabIndex={-1}>Nothing was sent</h2>
+    <p>No details were saved, and no follow-up was arranged.</p>
     <div className="success-actions"><button type="button" className="premium-button" onClick={reset}>Try the form again</button><Link className="text-link" href="/guides/faq">Explore common questions</Link></div>
   </section>;
 
   return <form ref={formRef} onSubmit={submit} noValidate className="premium-form">
-    <p id="demo-notice" className="demo-notice"><span className="demo-label">Demo</span> Try the form with sample contact details. Nothing is sent or saved.</p>
+    <p id="demo-notice" className="demo-notice">Requests are not sent yet. Nothing is sent or saved, and no one will contact you.</p>
     {Object.keys(errors).length > 0 ? <p role="alert" className="form-error-summary">Please complete the highlighted fields.</p> : null}
     <div className="premium-form-grid">
       {[
@@ -55,8 +54,7 @@ export default function QuoteForm() {
       <div><label htmlFor="ageRange">Age range <span aria-hidden="true">*</span></label><select id="ageRange" name="ageRange" required defaultValue="" {...errorProps("ageRange")}><option value="">Select an age range</option>{["50-59", "60-69", "70-79", "80-85"].map(age => <option value={age} key={age}>{age}</option>)}</select>{errors.ageRange ? <p className="field-error" id="ageRange-error">{errors.ageRange}</p> : null}</div>
       <div><label htmlFor="contactMethod">Preferred contact <span aria-hidden="true">*</span></label><select id="contactMethod" name="contactMethod" required defaultValue="" {...errorProps("contactMethod")}><option value="">Choose a preference</option>{["Phone call", "Text message", "Email"].map(method => <option key={method}>{method}</option>)}</select>{errors.contactMethod ? <p className="field-error" id="contactMethod-error">{errors.contactMethod}</p> : null}</div>
     </div>
-    <div className="consent-area"><label htmlFor="tcpaConsent"><input id="tcpaConsent" name="tcpaConsent" type="checkbox" required {...errorProps("tcpaConsent")} /><span>{CONSENT_TEXT}</span></label>{errors.tcpaConsent ? <p className="field-error" id="tcpaConsent-error">{errors.tcpaConsent}</p> : null}</div>
+    <div className="consent-area"><label htmlFor="tcpaConsent"><input id="tcpaConsent" name="tcpaConsent" type="checkbox" required {...errorProps("tcpaConsent")} /><span>I understand this sample does not send a request.</span></label>{errors.tcpaConsent ? <p className="field-error" id="tcpaConsent-error">{errors.tcpaConsent}</p> : null}</div>
     <button className="premium-button" type="submit">Request information <span aria-hidden="true">&#8599;</span></button>
-    <p className="form-privacy">Privacy: this demo uses fixed sample contact information and stays in your browser. It does not accept personal details or send calls, texts, or emails.</p>
   </form>;
 }

@@ -77,7 +77,6 @@ export default async function GuidePage({
           <Image src={guide.image.src} width={guide.image.width} height={guide.image.height}
             alt={guide.image.alt} sizes="(max-width: 1008px) calc(100vw - 45px), 963px"
             className="h-auto w-full rounded-lg" />
-          <figcaption className="mt-3 text-lg leading-relaxed text-ink-500">{guide.image.caption}</figcaption>
         </figure>}
 
         <div className="prose-senior mt-8 text-xl text-ink-700">
@@ -99,14 +98,15 @@ export default async function GuidePage({
                 </ul>
               )}
               {s.links?.map(link => <p key={link.href}><Link href={link.href} className="underline text-brand-700">{link.label}</Link></p>)}
+              {s.detail && <details className="guide-detail"><summary>{s.detail.summary}</summary>{s.detail.paragraphs.map(p => <p key={p}>{p}</p>)}</details>}
             </section>
           ))}
         </div>
 
         <div className="mt-12">
-          {guide.demoCta ? <QuoteCta title="Explore the demo at your own pace"
-            body="This prelaunch form uses fictional sample details. It sends and saves nothing, provides no quote, and does not request follow-up."
-            label="View demo information form" /> : <QuoteCta />}
+          <QuoteCta title="A next step that fits you"
+            body="Consider your priorities and current coverage before deciding what to do next."
+            label="Find your starting point" href="/start" />
         </div>
 
         {guide.faqs.length > 0 && (

@@ -1,10 +1,12 @@
 # Content Engine: Batch 1
 
-Date: October 8, 2026 (America/New_York). Article 1 is a local candidate only, pending independent editorial, runtime, and image QA before an authorized push. The existing public demo remains unchanged. Proposed pace is 1-2 articles per week, not an automated publishing schedule; no scheduler has been created.
+Date: October 8, 2026 (America/New_York). Article 1 passed independent editorial, runtime and image QA and was published at commit `757c718ecf460845e080851defdf36a180c03cf3`. The requested pace for remaining articles is 1-2 per week.
+
+Parent scheduled bounded work sessions on Monday/Thursday afternoons October 12, 15, 19 and 22, 2026 in America/New_York. These are planned work sessions, not a website CMS publishing scheduler or a guarantee of publication on those dates. Each article still requires current sources, a relevant image, independent QA and release authorization. If the Mini is unavailable, report the blocker rather than publishing several articles together to catch up.
 
 ## Proposed Order
 
-1. `/guides/does-medicare-cover-funeral-costs`: implemented locally for review.
+1. `/guides/does-medicare-cover-funeral-costs`: published after independent QA.
 2. `/guides/cremation-costs-georgia`: planned, not implemented.
 3. `/guides/final-expense-waiting-period`: planned, not implemented.
 4. `/guides/dying-without-life-insurance-georgia`: planned, not implemented.
@@ -22,7 +24,7 @@ No Georgia funeral average, policy price, approval guarantee, claim speed, licen
 
 ## Original Article Visual
 
-Built-in image generation created a warm, fictional older adult and adult family-member conversation at a kitchen table. The site caption identifies AI-generated editorial imagery, not clients. No official cards, seals, logos, readable paperwork, numbers, or testimonials were requested or observed. Actual faces, visible hands, folder, and kitchen background were inspected; no conspicuous anatomy defect or generated text was seen at full-image inspection. Independent image QA is still required.
+Built-in image generation created a warm, fictional older adult and adult family-member conversation at a kitchen table. The first candidate included an AI-origin caption; Matt subsequently requested its removal from consumer pages as part of the answer-first clarity milestone. Provenance stays here instead. No official cards, seals, logos, readable paperwork, numbers, or testimonials were requested or observed. Actual faces, visible hands, folder, and kitchen background were inspected; no conspicuous anatomy defect or generated text was seen at full-image inspection. Independent image QA passed before the Article 1 release.
 
 Optimized asset: `public/images/family-planning-medicare.webp`, 1600 x 800, 166188 bytes. SHA-256: `2fc4ae6191b9feaffe816e7e07e49e9a284c97a985e58e5f37f0843919d32a99`. It uses explicit dimensions, responsive sizes, descriptive alt text, and preserves the complete wide composition.
 

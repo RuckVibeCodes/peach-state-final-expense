@@ -6,11 +6,9 @@ export const medicareGuide: Guide = {
   description: "Medicare covers eligible health care, not a funeral-expense benefit. Understand the difference and explore practical planning options for Georgia families.",
   metaTitle: "Does Medicare Cover Funeral Costs? | Georgia Planning Guide",
   metaDescription: "Learn why Medicare is not funeral funding, how Social Security and VA benefits differ, and how Georgia families can compare planning options.",
-  demoCta: true,
   image: {
     src: "/images/family-planning-medicare.webp", width: 1600, height: 800,
     alt: "An older woman and an adult family member talking together at a kitchen table with a closed planning folder.",
-    caption: "AI-generated editorial illustration. These are fictional people, not clients or a testimonial.",
   },
   intro: [
     "No. Medicare does not provide a funeral-expense benefit to pay for a funeral, burial, or cremation. It is health insurance, not life insurance or a prepaid funeral arrangement. For a Georgia household planning ahead, the useful next question is what resources already exist and which expenses the family wants those resources to cover.",
@@ -37,7 +35,7 @@ export const medicareGuide: Guide = {
     ], links: [{ href: "/guides/how-final-expense-works", label: "Learn how final expense policies and claims work" }] },
     { heading: "Other assistance may have separate eligibility rules", paragraphs: [
       "For an eligible veteran, VA burial allowances may help with some funeral or burial costs. Qualifying burial in a VA national cemetery includes specified benefits, but that is different from paying every funeral-home expense. Check the relevant VA eligibility and application rules; military service alone does not establish every benefit described on a website.",
-      "Local public or charitable assistance may also exist, with its own eligibility, available funding, and application process. Ask the relevant county office or organization directly before relying on it. This guide does not confirm a particular Georgia assistance award. It would be misleading to say that no government help exists, or that a family must buy insurance because Medicare is not funeral funding.",
+      "Local public or charitable assistance may also exist, with its own eligibility, available funding, and application process. Ask the relevant county office or organization directly before relying on it. Confirm eligibility and available help before including it in your plan. Medicare's lack of a funeral benefit does not mean insurance is the only way to plan.",
     ] },
     { heading: "A manageable next step", paragraphs: [
       "Write down your preferences, obtain an itemized estimate, and list confirmed resources separately from applications still pending. Discuss the plan with someone you trust, including where documents are stored. Review it when family circumstances change. You do not need to solve every question in one sitting or share private medical information to start learning.",
@@ -46,7 +44,6 @@ export const medicareGuide: Guide = {
   faqs: [
     { q: "Does Medicare pay for cremation instead of burial?", a: "No. Choosing cremation does not turn the arrangements into a Medicare funeral benefit. Compare the selected services and separate funding resources." },
     { q: "Is funeral planning the same as advance-care planning?", a: "No. Advance-care planning addresses medical decisions and treatment wishes. Funeral preferences, provider contracts, and funding need their own discussion." },
-    { q: "Can this site give me a quote or request a callback?", a: "Not in this prelaunch demo. The demo information form uses fictional sample details, sends and saves nothing, and does not request follow-up or provide an insurance quote." },
   ],
   sources: [
     { title: "Medicare: How Medicare works (health coverage)", url: "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/how-does-medicare-work" },

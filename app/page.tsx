@@ -7,7 +7,7 @@ import { cities } from "@/lib/cities";
 
 export const metadata: Metadata = {
   title: "Affordable Final Expense Insurance for Georgia Families",
-  description: "Understand final expense coverage, costs, and choices for Georgia families ages 50 to 85. Clear information for Gwinnett and nearby communities.",
+  description: "Explore final expense coverage, costs, and existing insurance for Georgia families ages 50 to 85 in Gwinnett and nearby communities.",
   alternates: { canonical: SITE_URL },
 };
 
@@ -22,19 +22,19 @@ export default function Home() {
   return <>
     <JsonLd data={{ "@context": "https://schema.org", "@type": "WebSite", name: SITE_NAME, url: SITE_URL, description: "Educational final expense insurance information for Georgia families." }} />
     <section className="modern-hero" aria-labelledby="home-title">
-      <Image className="hero-photo" src="/images/family-veranda.webp" alt="Illustrative family scene: a grandmother enjoying time with her daughter and grandchild on a sunny porch" fill sizes="100vw" preload />
+      <Image className="hero-photo" src="/images/family-veranda.webp" alt="A grandmother enjoying time with her daughter and grandchild on a sunny porch" fill sizes="100vw" preload />
       <div className="hero-wash" />
       <div className="modern-container hero-inner"><div className="hero-copy">
         <p className="eyebrow"><span className="small-line" /> Georgia roots. Family first.</p>
         <h1 id="home-title">Affordable Final Expense Insurance for Georgia Families</h1>
         <p className="hero-description">A little planning today. More peace of mind for the people you love.</p>
-        <p className="hero-detail">Explore coverage that can help with funeral expenses and final bills, with clear information at every step.</p>
-        <div className="hero-actions"><Link href="/quote" className="premium-button">Explore your options <span aria-hidden="true">&#8599;</span></Link><Link href="#how-it-works" className="text-link">How it works <span aria-hidden="true">&#8594;</span></Link></div>
+        <p className="hero-detail">Consider funeral expenses, other final bills, and the resources your family already has.</p>
+        <div className="hero-actions"><Link href="/start" className="premium-button">Find your starting point <span aria-hidden="true">&#8599;</span></Link><Link href="#how-it-works" className="text-link">How it works <span aria-hidden="true">&#8594;</span></Link></div>
         <p className="hero-location"><span className="desktop-location">For ages 50–85 · Gwinnett &amp; surrounding Georgia communities</span><span className="mobile-location">Ages 50–85 · Northeast Georgia</span></p>
       </div></div>
     </section>
     <section className="principles" aria-label="Our approach"><div className="modern-container principles-grid">
-      <p><span className="principle-symbol" aria-hidden="true">01</span> Clear, everyday language</p><p><span className="principle-symbol" aria-hidden="true">02</span> Your budget comes first</p><p><span className="principle-symbol" aria-hidden="true">03</span> Decide at your own pace</p>
+      <p><span className="principle-symbol" aria-hidden="true">01</span> Consider existing coverage</p><p><span className="principle-symbol" aria-hidden="true">02</span> Compare ongoing payments</p><p><span className="principle-symbol" aria-hidden="true">03</span> Decide at your own pace</p>
     </div></section>
     <section className="modern-section modern-container coverage-section" aria-labelledby="coverage-title">
       <div className="section-intro"><p className="eyebrow">A thoughtful way to plan ahead</p><h2 id="coverage-title">Small coverage.<br />A meaningful difference.</h2><p>Final expense insurance is designed to help your loved ones with the expenses that remain. The right amount starts with your needs and a monthly payment you can comfortably keep.</p><Link href="/guides/how-final-expense-works" className="text-link">Understand the coverage <span aria-hidden="true">&#8594;</span></Link></div>
@@ -53,7 +53,7 @@ export default function Home() {
       ].map(step => <div className="step" key={step.n}><span className="step-number">{step.n}</span><h3>{step.title}</h3><p>{step.body}</p></div>)}</div>
     </div></section>
     <section className="modern-section modern-container faq-section" aria-labelledby="questions-title">
-      <div className="section-intro"><p className="eyebrow">Let&apos;s make it clear</p><h2 id="questions-title">Good questions.<br />Straight answers.</h2><p>Insurance can feel complicated. Understanding the basics is a good place to start.</p><Link href="/guides/faq" className="text-link">All frequently asked questions <span aria-hidden="true">&#8594;</span></Link></div>
+      <div className="section-intro"><h2 id="questions-title">Questions about coverage.</h2><p>A premium keeps coverage in force. The policy sets the benefit, payment requirements and limits.</p><Link href="/guides/faq" className="text-link">All frequently asked questions <span aria-hidden="true">&#8594;</span></Link></div>
       <div className="premium-faq">{questions.map(item => <details key={item.q}><summary>{item.q}<span aria-hidden="true" className="faq-plus">+</span></summary><p>{item.a}</p></details>)}</div>
     </section>
     <section className="learn-band" aria-labelledby="learn-title"><div className="modern-container modern-section">
@@ -66,6 +66,6 @@ export default function Home() {
       ].map(guide => <Link href={guide.href} className="guide-item" key={guide.href}><span className="eyebrow">{guide.label}</span><h3>{guide.title}</h3><p>{guide.description}</p><span className="guide-arrow" aria-hidden="true">&#8599;</span></Link>)}</div>
     </div></section>
     <section className="modern-section modern-container communities" aria-labelledby="communities-title"><p className="eyebrow">Close to home</p><h2 id="communities-title">For families across our corner of Georgia.</h2><p>Local information for Gwinnett County and nearby communities.</p><div className="city-links">{cities.map(city => <Link href={`/cities/${city.slug}`} key={city.slug}>{city.name}<span aria-hidden="true">&#8599;</span></Link>)}</div></section>
-    <section className="closing-band"><div className="modern-container closing-inner"><div><p className="eyebrow">For the people who matter most</p><h2>Plan with care.<br />Choose with confidence.</h2></div><div><p>Start by learning what final expense coverage could mean for your family.</p><Link href="/quote" className="premium-button">Explore your options <span aria-hidden="true">&#8599;</span></Link></div></div></section>
+    <section className="closing-band"><div className="modern-container closing-inner"><div><p className="eyebrow">For the people who matter most</p><h2>Plan with care.<br />Choose with confidence.</h2></div><div><p>Start by learning what final expense coverage could mean for your family.</p><Link href="/start" className="premium-button">Find your starting point <span aria-hidden="true">&#8599;</span></Link></div></div></section>
   </>;
 }
