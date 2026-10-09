@@ -238,7 +238,15 @@ export const guides: Guide[] = [
     intro: [
       "These are the questions Georgia seniors ask us most often about final expense insurance — answered the way we'd answer them across a kitchen table. No jargon, no sales pitch.",
     ],
-    sections: [],
+    sections: [
+      {
+        heading: "What should I check before choosing a policy?",
+        paragraphs: [
+          "Ask a licensed agent to walk through the actual policy, not just a monthly price. Compare the coverage amount, payment schedule, exclusions, and any period when only a limited benefit is payable. Ask which amounts are guaranteed and which are illustrations. A lower initial payment does not necessarily mean the same protection. Keep the written documents so you and your family can review them without pressure.",
+          "Before replacing existing coverage, check its benefits and ask how a new policy would differ. Do not cancel a policy simply because you requested information elsewhere. Discuss affordability over time, who will receive the benefit, and where your family will find the insurer's contact information. This prelaunch website cannot provide an actual quote or approve an application; eligibility and policy terms must be confirmed with a licensed agent and the insurer.",
+        ],
+      },
+    ],
     faqs: [
       {
         q: "What is final expense insurance?",
@@ -254,7 +262,7 @@ export const guides: Guide[] = [
       },
       {
         q: "What if I have serious health problems?",
-        a: "Guaranteed-issue final expense policies ask no health questions and approve everyone in the eligible age range (usually 50–85). They cost more and typically have a two-year waiting period before the full benefit pays out, but they ensure nobody is uninsurable.",
+        a: "Some policies do not require health questions, but availability, eligible ages, and other requirements vary by insurer. These policies may cost more and limit the benefit for certain deaths during an initial period. Ask for the written benefit schedule. This site does not promise eligibility or approval.",
       },
       {
         q: "Will my premium go up as I get older?",
@@ -262,7 +270,7 @@ export const guides: Guide[] = [
       },
       {
         q: "How fast does the benefit pay out?",
-        a: "Most insurers pay final expense claims within 1–3 business days of receiving the completed claim form and a certified death certificate. That's fast enough to cover funeral home deposits, which are typically due within days.",
+        a: "Timing varies by insurer and the circumstances of the claim. Beneficiaries may need a claim form, death certificate, and additional documentation. A claim can require further review. Do not assume insurance proceeds will be available for an immediate funeral deposit; ask the insurer about its process and plan for that possibility.",
       },
       {
         q: "Is the death benefit taxable?",
@@ -270,7 +278,7 @@ export const guides: Guide[] = [
       },
       {
         q: "Can I be turned down?",
-        a: "For simplified-issue policies (with health questions), yes — though most applicants are approved. For guaranteed-issue policies, no — approval is automatic within the eligible age range. There's an option for nearly everyone.",
+        a: "Yes, eligibility depends on the product and insurer. Policies with health questions can decline an application. Products described as guaranteed issue still have eligibility requirements, availability limits, and policy terms. A licensed agent can explain possible options, but this educational site cannot guarantee acceptance.",
       },
       {
         q: "What's the difference between final expense insurance and pre-paying a funeral home?",
