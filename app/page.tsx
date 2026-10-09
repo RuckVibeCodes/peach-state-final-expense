@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const questions = [
-  { q: "What is final expense insurance?", a: "Final expense insurance is generally a smaller whole life policy intended to help with funeral expenses and other final bills. Coverage commonly ranges from $5,000 to $25,000. The policy's terms determine when and how benefits are paid." },
+  { q: "What is final expense insurance?", a: "Final expense describes life insurance intended to help with funeral expenses and other final bills, commonly smaller whole life coverage. Amounts such as $5,000 to $25,000 are illustrative, not product limits or availability promises. The actual policy determines benefits and payment requirements." },
   { q: "Will I need a medical exam?", a: "Many final expense policies use health questions instead of a medical exam. Eligibility, available coverage, and any waiting period depend on the insurer and policy." },
   { q: "What determines the monthly cost?", a: "Your age, health, tobacco use, coverage amount, and the insurer's rules affect the premium. A licensed agent can explain available options and the cost for your circumstances." },
   { q: "Can I apply if I have a health condition?", a: "A health condition does not automatically rule out every option. Some policies have different eligibility rules or a graded benefit period. Review exclusions and waiting periods before making a decision." },

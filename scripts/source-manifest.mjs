@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 
 const root = process.cwd();
-const excluded = new Set(["node_modules", ".next", ".npm-cache", "artifacts", "data", ".git"]);
+const excluded = new Set(["node_modules", ".next", ".npm-cache", "artifacts", "data", ".git", ".vercel"]);
 const files = [];
 async function walk(directory, relative = "") {
   for (const entry of await readdir(directory, { withFileTypes: true })) {

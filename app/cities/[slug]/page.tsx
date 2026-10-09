@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import QuoteCta from "@/components/QuoteCta";
 import Faq from "@/components/Faq";
+import ContentSources from "@/components/ContentSources";
 import { cities, getCity, citySlugs } from "@/lib/cities";
 import { SITE_NAME, canonical } from "@/lib/site";
 
@@ -68,7 +69,7 @@ export default async function CityPage({
         </nav>
 
         <p className="mt-6 text-xl font-bold uppercase tracking-wide text-gold-600">
-          {city.county} &middot; {city.zip}
+          Georgia families
         </p>
         <h1 className="mt-3 text-4xl font-bold leading-tight text-ink-900 md:text-5xl">
           Final Expense Insurance in {city.name}, GA
@@ -105,6 +106,8 @@ export default async function CityPage({
             <Faq items={city.faqs} />
           </div>
         </section>
+
+        <ContentSources sources={city.sources} />
 
         <section aria-labelledby="more-cities" className="mt-14">
           <h2 id="more-cities" className="text-2xl font-bold text-ink-900">

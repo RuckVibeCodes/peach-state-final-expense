@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import QuoteCta from "@/components/QuoteCta";
 import Faq from "@/components/Faq";
+import ContentSources from "@/components/ContentSources";
 import { guides, getGuide, guideSlugs } from "@/lib/guides";
 import { SITE_NAME, canonical } from "@/lib/site";
 
@@ -63,8 +64,6 @@ export default async function GuidePage({
         <nav aria-label="Breadcrumb" className="text-lg text-ink-500">
           <Link href="/" className="underline hover:text-brand-700">Home</Link>
           {" / "}
-          <Link href="/guides/faq" className="underline hover:text-brand-700">Guides</Link>
-          {" / "}
           <span aria-current="page">{guide.title}</span>
         </nav>
 
@@ -109,6 +108,8 @@ export default async function GuidePage({
             </div>
           </section>
         )}
+
+        <ContentSources sources={guide.sources} />
 
         <section aria-labelledby="related-guides" className="mt-14">
           <h2 id="related-guides" className="text-2xl font-bold text-ink-900">

@@ -1,310 +1,178 @@
-export interface GuideSection {
-  heading: string;
-  paragraphs: string[];
-  list?: string[];
-}
+import { insuranceSources, funeralSources, beneficiarySources, underwritingSources, type ContentSource } from "./content-sources";
 
+export interface GuideSection { heading: string; paragraphs: string[]; list?: string[]; }
 export interface Guide {
-  slug: string;
-  title: string;
-  description: string;
-  intro: string[];
-  sections: GuideSection[];
-  faqs: { q: string; a: string }[];
-  metaTitle: string;
-  metaDescription: string;
+  slug: string; title: string; description: string; intro: string[];
+  sections: GuideSection[]; faqs: { q: string; a: string }[];
+  sources: ContentSource[]; metaTitle: string; metaDescription: string;
 }
 
 export const guides: Guide[] = [
   {
     slug: "final-expense-costs-georgia",
-    title: "What Does Final Expense Insurance Cost in Georgia?",
-    description:
-      "A plain-English breakdown of final expense insurance costs in Georgia — what drives the price, typical monthly ranges by age, and how to keep premiums affordable.",
+    title: "Understanding Final Expense Insurance Costs in Georgia",
+    description: "What affects premiums, how to research funeral costs, and how to compare coverage with a budget you can maintain.",
     intro: [
-      "The first question almost every Georgia senior asks is also the most reasonable one: what is this going to cost me every month? The honest answer is that it depends on four things — your age, your health, whether you use tobacco, and how much coverage you choose.",
-      "This guide walks through each of those factors with realistic numbers, so you can judge for yourself what fits your budget before you ever talk to anyone.",
+      "A monthly insurance payment and a funeral budget are two different numbers. The premium is what you pay to keep a policy in force. The death benefit is the amount potentially payable under its terms. Funeral expenses are what providers charge for the arrangements your family selects. Start by separating those questions rather than assuming one advertised payment answers all three.",
+      "This guide does not provide a premium table or a Georgia funeral-price average. No documented insurer rate study or dated local funeral price lists have been supplied for this site. A personalized quote requires an actual available product and the insurer's eligibility and rating process. The public demo cannot quote, approve an application, or collect your contact details.",
     ],
     sections: [
-      {
-        heading: "The four things that set your price",
-        paragraphs: [
-          "Age is the biggest factor. A 55-year-old pays substantially less than a 75-year-old for the same $10,000 policy — sometimes half as much. That's simply because the insurer expects to collect premiums for longer. Every birthday raises the price, which is why buying sooner rather than later saves real money.",
-          "Health comes next, but it's gentler than most people fear. Final expense uses simplified underwriting — a short list of health questions, no exam. Well-managed conditions like high blood pressure, high cholesterol, or type 2 diabetes generally don't prevent approval or even raise the price much. What raises prices are serious recent events: heart attack, stroke, cancer, or lung disease in the last couple of years.",
-          "Tobacco use is the third factor, and it's a big one. Smokers typically pay 30% to 50% more than non-smokers. The good news: if you quit, many insurers will re-rate you as a non-smoker after 12 months tobacco-free.",
-          "Finally, the coverage amount. More coverage costs more — roughly proportionally. A $20,000 policy costs about twice a $10,000 policy at the same age and health class.",
-        ],
-      },
-      {
-        heading: "Typical monthly ranges (so you can sanity-check any quote)",
-        paragraphs: [
-          "Nobody can quote you precisely without your details, and you should be skeptical of any website that claims to. But realistic ballparks help you spot a bad deal. For a non-smoker in reasonably good health, $10,000 of final expense coverage often lands in these neighborhoods:",
-        ],
-        list: [
-          "Age 55–60: roughly $30–$55 per month",
-          "Age 65–70: roughly $50–$90 per month",
-          "Age 70–75: roughly $70–$120 per month",
-          "Age 75–80: roughly $100–$170 per month",
-          "Age 80–85: roughly $150–$250 per month",
-        ],
-      },
-      {
-        heading: "What these ranges assume — read this part",
-        paragraphs: [
-          "Those are illustrative ranges for simplified-issue policies, not promises. Your actual premium could be lower or higher. Guaranteed-issue policies (no health questions) run higher. Excellent health at 65 could beat the range; serious health issues could exceed it.",
-          "Anyone who gives you an exact price without asking your age, health history, and tobacco use is guessing — or selling. A legitimate quote takes about 15 minutes of questions first.",
-        ],
-      },
-      {
-        heading: "How Georgia seniors keep premiums affordable",
-        paragraphs: [
-          "Buy the coverage you need, not the coverage you're sold. If a $10,000 policy covers the funeral you'd want, you don't need $25,000. Match the policy to the actual cost — that's the entire philosophy of final expense insurance.",
-          "Consider your tobacco status honestly and ask about re-rating if you quit. And if budget is tight, remember that a smaller policy you keep is infinitely better than a bigger policy you let lapse. $7,500 of paid-up coverage beats $15,000 of cancelled coverage every time.",
-        ],
-      },
-      {
-        heading: "Watch out for these pricing tricks",
-        paragraphs: [
-          "Some policies are priced low for the first few years and then increase — that's term insurance dressed up, not true final expense whole life. Always confirm the premium is guaranteed level for life, in writing.",
-          "Also beware of 'accidental death' policies marketed like life insurance. They only pay if you die by accident — which is not how most of us go. A real final expense policy pays regardless of cause of death (after any initial waiting period on guaranteed-issue plans).",
-        ],
-      },
+      { heading: "What goes into an insurance quote?", paragraphs: [
+        "Age, health information, tobacco use, the benefit amount, and the specific product can affect price and availability. Do not treat a neighbor's payment as your rate. Ask which answers are relevant, whether a quote is preliminary, and what could change after underwriting. A useful comparison identifies the insurer, product, payment schedule, eligibility assumptions, and date, not simply a monthly number.",
+        "For example, write the same desired benefit at the top of two comparison sheets. Then record the premium and benefit restrictions separately. If one option has a limited initial benefit and another does not, they are not identical coverage even if the advertised amounts match. This is a comparison method, not a statement that a particular policy is available to you.",
+      ] },
+      { heading: "Check the payment schedule, not just the first payment", paragraphs: [
+        "Ask whether payments stay level, can change, or stop after a defined period. Check which provisions are guaranteed in the contract. Some permanent policies build cash value, but early values may be small and are not the same as the death benefit. Do not assume every product described as burial or final expense has identical premiums, values, or benefits.",
+        "Put the proposed payment into your real household budget alongside housing, food, prescriptions, transportation, and an allowance for unexpected expenses. Would it still be manageable in a difficult month? A larger benefit is not automatically better if maintaining it would strain essential spending. Ask about smaller amounts or other approaches without being rushed into a purchase.",
+      ] },
+      { heading: "Build a funeral estimate from actual price lists", paragraphs: [
+        "For local research, obtain dated, itemized information from providers you would actually consider. The FTC explains price-list and telephone-information rights under the Funeral Rule. Compare complete arrangements, not one prominent package price. Save the provider name, location, date, included items, and separately charged items so another family member can understand your estimate later.",
+        "A practical worksheet has separate lines for the funeral provider, cemetery arrangements, transportation, optional gathering, and other selected items. Mark each figure as quoted, estimated, or not yet known. Ask providers what is excluded and what could change. A national survey or an old advertisement should not silently become a current Dacula or Lawrenceville price. This site has not published a verified local price comparison.",
+      ] },
+      { heading: "Compare burial and cremation without assumptions", paragraphs: [
+        "Consider the specific services wanted with either choice. Cremation can be accompanied by a viewing, a memorial, burial of remains, or other arrangements; burial can also involve different service choices. Ask for an itemized total for your chosen scenario. Labels alone do not tell you whether two proposals include comparable merchandise, services, or cemetery charges.",
+        "Keep preferences and prices on the same sheet. If one relative is comparing a direct arrangement and another is imagining a larger gathering, clarify that difference before debating the total. You can record a preferred plan and a simpler alternative without promising that insurance will pay every expense. The goal is a shared understanding, not a universal recommendation for one kind of farewell.",
+      ] },
+      { heading: "Translate the estimate into a coverage discussion", paragraphs: [
+        "List any existing insurance, savings intended for this purpose, and prepaid arrangements before considering additional coverage. Illustrative amounts such as $5,000, $10,000, or $25,000 are discussion points, not assurances of availability or enough money for a particular funeral. Ask a licensed agent to help distinguish a current need from coverage you already have.",
+        "Also think about timing. A payable insurance claim is not an immediate cash account. Your family may need documents and the insurer may need to review the claim. Do not plan on an insurance payment meeting a deposit deadline. Discuss how the family would manage an immediate expense separately from the amount a policy might eventually pay.",
+      ] },
+      { heading: "A short checklist before deciding", paragraphs: [
+        "Keep a written comparison of premiums, benefit amounts, exclusions, initial benefit limits, cash values if relevant, and the consequences of missed payments. Ask for plain-language explanations of anything unclear. If you already have coverage, compare it carefully before changing it. Requesting information or a new quote is not a reason to cancel an existing policy.",
+        "Revisit your planning after a change in needs, finances, or family circumstances. Keep the estimate's source dates visible rather than presenting an old total as current. There is no single correct benefit for every Georgia household. A decision should connect documented costs, available resources, policy terms, and affordability, with room to decide not to buy additional insurance.",
+      ] },
     ],
     faqs: [
-      {
-        q: "Why do final expense quotes vary so much between companies?",
-        a: "Each insurer prices risk differently — one may be lenient about diabetes while another penalizes it. That's why comparing two or three options matters. An independent agent can run your profile past multiple companies instead of quoting just one.",
-      },
-      {
-        q: "Will my premium ever go up?",
-        a: "On a true final expense whole life policy, no — level premiums are guaranteed for life as long as you pay on time. If a quote mentions increasing premiums, you're likely looking at a term product, not final expense whole life.",
-      },
-      {
-        q: "Is there a policy with no monthly payment at all?",
-        a: "Some insurers offer single-premium or limited-pay options (e.g., pay for 10 years, covered for life). These require a larger upfront commitment but eliminate the monthly bill. Ask about them if a lump sum works better for your situation.",
-      },
+      { q: "Why are there no monthly price ranges here?", a: "Undocumented ranges can look more reliable than they are. An accurate example needs a specific product, date, assumptions, and a clear distinction between illustration and an actual quote. This demo has none of those product-specific inputs." },
+      { q: "Does a low premium mean a better deal?", a: "Not by itself. Compare the full payment schedule and benefits, including any initial limitations. Ask what the policy does and does not provide before choosing on price alone." },
     ],
-    metaTitle: "Final Expense Insurance Costs in Georgia (2026 Guide) | Peach State Final Expense",
-    metaDescription:
-      "What does final expense insurance cost in Georgia? Realistic monthly ranges by age, what drives your price, and how to avoid overpaying. Plain-English guide.",
+    sources: [...insuranceSources, ...funeralSources],
+    metaTitle: "Final Expense Insurance Costs in Georgia",
+    metaDescription: "Understand rating factors, research funeral prices, and compare final expense coverage with an affordable budget. No unsupported premium estimates.",
   },
   {
     slug: "how-final-expense-works",
-    title: "How Final Expense Insurance Works (Start to Finish)",
-    description:
-      "From application to claim payout: exactly how final expense insurance works, who it's for, and what your family can expect — explained in plain English.",
+    title: "How Final Expense Insurance Works",
+    description: "A plain-language explanation of coverage, applications, benefit limitations, and the questions your family should ask about claims.",
     intro: [
-      "Final expense insurance sounds simple — and it mostly is — but nobody ever sits you down and explains the whole lifecycle: how you apply, what happens while you pay, and what your family actually does when the time comes.",
-      "This guide walks through all of it, step by step, so there are no surprises for you or the people you love.",
+      "Final expense is a common description for life insurance intended to help with funeral costs and other final bills. It is often a smaller whole life policy, but the marketing name alone does not establish its terms. The policy identifies what is insured, who receives a payable benefit, what payments are required, and which limitations apply.",
+      "Illustrative coverage amounts of $5,000 to $25,000 can help frame a conversation, but are not a quote, an offer, or a promise that a product or amount is available. Whether insurance makes sense depends on your resources, existing coverage, needs, and ability to maintain payments. This website currently provides education and a sample form, not an application or live quote service.",
     ],
     sections: [
-      {
-        heading: "Step 1: The application (about 20 minutes)",
-        paragraphs: [
-          "You apply by phone or online. You'll provide basic information — name, date of birth, address, Social Security number — and answer health questions. Typical questions cover heart conditions, stroke, cancer, lung disease, diabetes, and hospitalizations, usually with a two-to-five-year lookback.",
-          "There is no medical exam. No blood draw, no urine sample, no nurse visiting your home. For most applicants, the phone interview is the entire medical part of the process.",
-        ],
-      },
-      {
-        heading: "Step 2: Underwriting and approval (days, not weeks)",
-        paragraphs: [
-          "The insurer reviews your answers, usually checks prescription history and the Medical Information Bureau (with your permission), and issues a decision — typically within 2 to 5 business days. Many applicants are approved; some with significant health issues may be offered a graded or guaranteed-issue policy instead.",
-          "Once approved, you choose your beneficiary (or beneficiaries), set up monthly bank-draft payments, and receive the policy documents. Coverage generally starts on the first paid premium date.",
-        ],
-      },
-      {
-        heading: "Step 3: The paying years (set it and forget it)",
-        paragraphs: [
-          "Each month, the premium drafts from your bank account. The amount never changes. The coverage never decreases. You don't need to do anything else — no annual checkups, no re-qualifying, no paperwork. The insurer cannot cancel your policy because you got older or sicker.",
-          "If money gets tight, call the insurer before missing payments. There's typically a 30-day grace period, and letting a policy lapse means losing everything you paid in — so it's worth a conversation first.",
-        ],
-      },
-      {
-        heading: "Step 4: When the time comes — how your family files a claim",
-        paragraphs: [
-          "Your beneficiary (or a family member helping them) contacts the insurance company and requests claim forms. They'll need a certified death certificate — the funeral home usually orders these as part of their services, so ask for several copies.",
-          "The beneficiary completes the short claim form, attaches the death certificate, and submits everything by mail or online upload. Most final expense claims are paid within 24 to 72 hours of the insurer receiving complete paperwork. The money arrives as a check or direct deposit, and your family uses it for the funeral and any other needs.",
-        ],
-      },
-      {
-        heading: "What the benefit can be used for",
-        paragraphs: [
-          "Anything. The death benefit is paid in cash with no restrictions. Most families use it for the funeral home, cemetery, and headstone first, then final medical bills, small debts, or legal costs. If there's money left over, it stays with the beneficiary — no accounting required.",
-          "This flexibility is the point. A pre-paid funeral plan locks money to one funeral home; a final expense policy trusts your family to handle things their way.",
-        ],
-      },
-      {
-        heading: "The two-year contestability period, honestly explained",
-        paragraphs: [
-          "During the first two years, an insurer can investigate a claim and deny it if the application contained material misstatements — for example, hiding a recent cancer diagnosis. This is why answering the health questions truthfully matters so much.",
-          "After two years, the policy is generally incontestable. And note: this applies to misrepresentation, not to dying of a disclosed condition. If you truthfully reported your heart condition and pass from it in year one, the policy pays.",
-        ],
-      },
+      { heading: "Start with the purpose and type of policy", paragraphs: [
+        "Life insurance can address different needs. A temporary income or debt obligation may suggest a different duration and benefit amount from a final-bills plan. Term covers a defined period; permanent coverage is intended for longer protection, subject to its contract and keeping it in force. Compare the actual product rather than assuming either label is always the right answer.",
+        "Write down what you hope insurance would accomplish. Is it a contribution toward a farewell, support for someone who depends on your income, or something else? List existing resources next to that need. A small final expense benefit should not be described as a substitute for a much larger income-protection need simply because it sounds easier to obtain.",
+      ] },
+      { heading: "Understand the application and underwriting", paragraphs: [
+        "An application may ask about identity, health, and other eligibility information. Simplified issue commonly means a reduced underwriting process with health questions rather than a medical exam. It does not mean no review or certain acceptance. Products described as guaranteed issue may omit health questions but still have age, residence, availability, and other requirements.",
+        "Ask the licensed agent which questions must be answered, what information the insurer may check, and what determines the decision. Answer accurately and read the completed application before signing. If a question is unclear, seek an explanation rather than guessing. No application duration, approval deadline, or treatment of a particular health condition is promised by this guide.",
+      ] },
+      { heading: "Read initial benefit limits carefully", paragraphs: [
+        "Some products limit benefits for certain deaths during an initial period. A graded or waiting-period provision can differ from the face amount printed in an advertisement. Ask for the written schedule: which events receive which benefit, when any limitation ends, and what exclusions remain. Do not assume a two-year limit or a particular premium-refund formula applies universally.",
+        "A benefit limitation and a contestability provision are different issues. One describes the coverage purchased; the other can allow examination of application statements under the contract and applicable rules. A truthful application does not remove all exclusions or guarantee payment in every circumstance. Ask for a clear explanation of both before deciding whether the protection meets your purpose.",
+      ] },
+      { heading: "Keep the policy usable over time", paragraphs: [
+        "Read the effective-date and payment requirements. Check the premium schedule, any cash-value provisions, and what happens if a payment is late or coverage lapses. Whole life is designed for long-term coverage, but that is not permission to ignore policy conditions. Loans, changes, or unpaid obligations can affect values or the amount eventually payable.",
+        "Keep insurer contact information and policy documents somewhere accessible to the people who may need them. Review beneficiary details after family changes. If the premium becomes difficult to maintain, ask the insurer about the actual contract options before missing payments or replacing coverage. This guide cannot determine which option is suitable for a particular household.",
+      ] },
+      { heading: "Choose beneficiaries thoughtfully", paragraphs: [
+        "The beneficiary designation identifies the person or organization intended to receive a payable benefit. Consider a backup beneficiary and keep names and contact details current. Discuss the arrangement with appropriate trusted people so the existence of the policy is not a surprise. Being named and knowing how to locate the insurer are separate practical matters.",
+        "Minor children raise additional questions: do not assume the insurer can pay a child directly. Ask the insurer and an appropriate legal adviser how the money would be managed in your circumstances. Trust or custodial arrangements may be relevant, but there is no single setup prescribed here. Tax and estate questions also require advice beyond this educational explanation.",
+      ] },
+      { heading: "What happens when a claim is needed?", paragraphs: [
+        "A beneficiary contacts the insurer for its instructions and required documents. These may include a claim form, a death certificate, and further information. Payment depends on the claim, policy provisions, and any necessary review. Do not assume a fixed number of hours or business days, or that funds will arrive before a funeral provider requests payment.",
+        "Create a simple family information sheet with the insurer, policy location, and who to contact. Keep funeral preferences separate from assumptions about the claim. If there is a prepaid funeral contract, check its services, cancellation, and transfer provisions rather than treating it as interchangeable with insurance. Neither planning tool automatically resolves every cost or timing question.",
+      ] },
+      { heading: "Deciding whether to proceed", paragraphs: [
+        "Bring your needs, existing policy details, budget, and unanswered questions to a licensed agent. Ask what is guaranteed, what could change, and why the proposed policy fits your stated purpose. A decision may be to keep existing coverage, consider an additional policy, use other resources, or wait. Do not cancel current coverage merely to explore another option.",
+      ] },
     ],
     faqs: [
-      {
-        q: "How long does it take for my family to receive the money?",
-        a: "Once the insurer has the completed claim form and death certificate, most final expense benefits are paid within 1–3 business days. The biggest delays usually come from waiting on the death certificate itself, which is why funeral homes order several certified copies.",
-      },
-      {
-        q: "What if I outlive the policy?",
-        a: "You can't. Final expense is whole life insurance — it has no expiration date. As long as premiums are paid, the coverage lasts your entire life, whether that's to 80 or 105.",
-      },
-      {
-        q: "Can I borrow against my policy?",
-        a: "Final expense policies do build a small cash value over time, and most allow policy loans against it. Borrowing reduces the death benefit until repaid, so it's best treated as an emergency option rather than a feature.",
-      },
+      { q: "Is no medical exam the same as guaranteed approval?", a: "No. A product can omit an exam and still use health questions or other eligibility requirements. Ask about the actual application process and benefit restrictions." },
+      { q: "Can my family use the benefit for something other than a funeral?", a: "A payable benefit to a beneficiary is not necessarily a prepaid purchase of funeral services. Check beneficiary designations, assignments, and policy terms. Discuss your wishes rather than assuming a policy directs every spending decision." },
     ],
-    metaTitle: "How Final Expense Insurance Works: A Complete Guide | Peach State Final Expense",
-    metaDescription:
-      "How does final expense insurance work? Application, approval, premiums, and exactly how your family files a claim — explained step by step in plain English.",
+    sources: [...insuranceSources, ...underwritingSources, ...beneficiarySources, funeralSources[2]],
+    metaTitle: "How Final Expense Insurance Works",
+    metaDescription: "Learn about final expense applications, underwriting, benefit limits, beneficiaries, and claims without approval or payout-timing promises.",
   },
   {
     slug: "term-vs-final-expense",
-    title: "Term Life vs. Final Expense Insurance: Which Do You Actually Need?",
-    description:
-      "Term life and final expense insurance solve different problems. Here's an honest comparison for Georgia seniors deciding which — if either — fits their situation.",
+    title: "Term Life vs. Final Expense Insurance",
+    description: "Compare purpose, duration, benefits, and limitations before deciding whether to keep, add, or change life insurance.",
     intro: [
-      "If you shopped for life insurance in your 30s or 40s, you probably bought term: cheap, big coverage, expires after 20 or 30 years. Now you're 65 or 70, the term is expiring (or expired), and someone is suggesting final expense insurance instead.",
-      "They're different tools for different jobs. This guide compares them honestly so you buy the right one — or confidently buy neither.",
+      "Term life and final expense are not interchangeable descriptions. Term identifies a type of coverage with a defined duration. Final expense describes a purpose and is often marketed as smaller whole life coverage. A useful comparison begins with the actual contracts and the need you want to address, not a claim that one product is best for everyone after a certain birthday.",
+      "Georgia's insurance commissioner distinguishes term from cash-value insurance and encourages careful comparison of current coverage before replacing it. This guide provides a framework for that discussion. It does not compare available quotes or recommend a specific policy. Existing health, financial circumstances, and product availability must be considered with a licensed agent, not inferred from a website's age examples.",
     ],
     sections: [
-      {
-        heading: "What term life is actually for",
-        paragraphs: [
-          "Term life exists to replace income. When you were 35 with a mortgage and kids, a $500,000 20-year term policy meant your family could keep the house and maintain their lifestyle if you died. It was cheap because the odds of a healthy 35-year-old dying within 20 years are low.",
-          "The tradeoff was always the expiration date. Term is rented coverage — when the term ends, the coverage ends, and everything you paid is gone. That was fine when the plan was 'I'll be self-insured by 55.'",
-        ],
-      },
-      {
-        heading: "What final expense is actually for",
-        paragraphs: [
-          "Final expense exists to pay for your funeral. That's it — that's the job. Coverage amounts of $5,000 to $25,000 map to actual funeral costs, not to income replacement. It's whole life insurance, so it never expires, and the premiums never increase.",
-          "It's more expensive per thousand dollars of coverage than term was — because at 70, the insurer knows a claim is a matter of when, not if. But it will actually be there when your family needs it, which is the entire point.",
-        ],
-      },
-      {
-        heading: "Side-by-side comparison",
-        paragraphs: [
-          "Here's the honest breakdown:",
-        ],
-        list: [
-          "Purpose: Term replaces income for dependents; final expense pays funeral and end-of-life costs.",
-          "Coverage amounts: Term is typically $100,000–$1,000,000+; final expense is $5,000–$25,000.",
-          "Duration: Term expires after 10–30 years; final expense (whole life) lasts your entire life.",
-          "Premiums: Term starts cheap but skyrockets if renewed at older ages; final expense costs more per dollar but the premium is locked forever.",
-          "Medical exam: Term usually requires one; final expense usually doesn't.",
-          "Best ages: Term for 25–55; final expense for 50–85.",
-        ],
-      },
-      {
-        heading: "When term still makes sense after 60",
-        paragraphs: [
-          "There are legitimate cases. If you're 62, still working, with a spouse depending on your income for another decade, a 10- or 15-year term policy can be the right bridge — and it's cheaper than final expense for the same death benefit.",
-          "Some seniors also keep a small term policy to cover a specific debt with an end date, like remaining mortgage years. The key question is always: does the need have an expiration date? If yes, term. If the need is 'my funeral, whenever that happens,' final expense.",
-        ],
-      },
-      {
-        heading: "The mistake to avoid",
-        paragraphs: [
-          "The most expensive mistake we see: letting a term policy expire at 65, assuming you're 'done with insurance,' then trying to buy coverage at 75 after a health scare. By then, term is prohibitively expensive and final expense costs more than it would have a decade earlier.",
-          "If your term is expiring in the next few years, that's the moment to decide — not after. A free quote now costs nothing and tells you exactly where you stand.",
-        ],
-      },
+      { heading: "Purpose: what needs protection?", paragraphs: [
+        "Think in terms of obligations rather than labels. Income support for a dependent, a remaining mortgage, a planned gift, and a contribution toward final bills can involve different amounts and time horizons. Write each need down separately. A funeral-planning concern does not mean every other obligation has disappeared, and retirement does not create the same insurance need for every household.",
+        "For a hypothetical household with a debt expected to end, a defined coverage period may be relevant. For a household focused on expenses whenever death occurs, longer-duration protection may be relevant. These examples illustrate the questions to ask, not suitable products or guaranteed outcomes. Existing savings and policies should be included before calculating any additional need.",
+      ] },
+      { heading: "Duration: compare what actually continues", paragraphs: [
+        "Term insurance pays a covered death benefit during its specified period. Renewal or conversion rights, if any, are defined by the policy. Whole life is intended for lifetime protection with its payment and other conditions met. Read the duration, renewal provisions, maturity provisions if applicable, and payment obligations rather than relying on a slogan about renting or owning insurance.",
+        "If a term is approaching its end, ask the current insurer what happens next and whether any deadline applies to an option you have. Get answers while there is time to compare, but do not interpret that as a command to replace the policy. Missing a contract deadline and buying a different product under pressure are both avoidable reasons to slow down and read.",
+      ] },
+      { heading: "Benefits and cost are different comparisons", paragraphs: [
+        "Term generally has lower premiums in early years than permanent insurance, but that broad distinction is not a personalized price comparison. A monthly payment for a smaller benefit cannot be fairly compared with a payment for a much larger one without explaining the difference. Compare the same purpose, benefit amount, duration, eligibility assumptions, and payment schedule where possible.",
+        "A useful side-by-side sheet also records exclusions and any initial benefit limitations. If one contract provides limited benefits for certain deaths early on, that difference matters even when the eventual face amounts are identical. Ask which provisions are guaranteed. An illustration, a marketing description, and the issued contract have different roles; do not treat a projected value as a promise.",
+      ] },
+      { heading: "Underwriting is not a simple age rule", paragraphs: [
+        "Product applications differ. Some use medical information or examinations; others use fewer health questions, and some omit health questions subject to other eligibility conditions. Neither term nor final expense tells you the complete underwriting process by itself. Age limits, residence requirements, offered amounts, and application decisions vary. This site cannot confirm a policy is available at any particular age.",
+        "Before applying, ask what the insurer needs to know and how an initial quote could change. Answer the questions accurately and keep a copy of the application. If health has changed since an existing policy was issued, that can be an important reason to compare cautiously rather than assuming new insurance will have the same price or terms.",
+      ] },
+      { heading: "Do not ignore cash values or payment consequences", paragraphs: [
+        "Most term policies do not build cash value. Whole life may build cash value, which is different from the death benefit and can be modest in early years. Ask for the policy's values and surrender provisions if relevant. Loans or withdrawals can affect protection. Do not describe cash value as free spending money or assume all premiums are recoverable when coverage ends.",
+        "Affordability should be tested over time, not just on the first payment date. Consider the premium under the actual schedule and what happens if you cannot maintain it. Ask the insurer which options exist under your current contract before surrendering it. A smaller additional obligation may still be unaffordable; no amount should be treated as harmless because it sounds small.",
+      ] },
+      { heading: "Keeping, adding, or replacing coverage", paragraphs: [
+        "Existing coverage may already address the need, or different policies may serve complementary purposes. Adding insurance still means reviewing total premiums, benefits, and any applicable insurer limits. More policies are not automatically better. Compare an existing contract with a proposed one in writing, including any values or protections you would give up and any new restrictions you would accept.",
+        "Do not cancel current insurance simply because you requested a new quote or submitted an application. Georgia and NAIC guidance emphasize careful replacement comparisons. A new policy can have different eligibility, premiums, and initial provisions. Ask an appropriately qualified adviser about consequences that are unclear. A website cannot determine whether a replacement is in your interests.",
+      ] },
+      { heading: "Leave the conversation with clear answers", paragraphs: [
+        "Before deciding, summarize the purpose, duration, payable benefits, limits, premium schedule, and options under existing coverage in your own words. If you cannot explain an important term, ask again. Keep documents and insurer contact details accessible to your beneficiaries. Taking time to understand a proposal is part of planning; it is not a reason to accept a deadline invented by a sales message.",
+      ] },
     ],
     faqs: [
-      {
-        q: "Can I have both term and final expense insurance?",
-        a: "Absolutely. Many people carry a term policy for income protection during working years and add final expense coverage that continues after the term expires. They serve different purposes and don't conflict.",
-      },
-      {
-        q: "My term policy is expiring next year. What should I do?",
-        a: "First, check whether it's convertible — many term policies let you convert to permanent coverage without new health questions, though the price reflects your current age. If conversion isn't attractive, get final expense quotes now rather than waiting until after expiration.",
-      },
-      {
-        q: "Is final expense just expensive term insurance?",
-        a: "No — it's whole life insurance, a fundamentally different product. Term expires; whole life doesn't. The higher cost per dollar reflects lifetime coverage and the older age of applicants, not a markup on the same thing.",
-      },
+      { q: "Must I replace term insurance with final expense after retirement?", a: "No. Review what you have and what needs remain. There is no universal retirement-age rule requiring a switch. Ask about existing contract options and compare before changing anything." },
+      { q: "Can I keep two kinds of coverage?", a: "Potentially, if the products are available and suitable for your circumstances. Discuss the total cost and purpose of each; this is not a recommendation to hold multiple policies." },
     ],
-    metaTitle: "Term Life vs Final Expense Insurance: Honest Comparison | Peach State Final Expense",
-    metaDescription:
-      "Term vs final expense insurance for seniors: what each is actually for, honest cost comparison, and which one fits your situation. Plain-English guide.",
+    sources: insuranceSources,
+    metaTitle: "Term Life vs. Final Expense Insurance",
+    metaDescription: "Compare term and final expense purpose, duration, costs, underwriting and replacement risks. Keep existing coverage in the discussion.",
   },
   {
     slug: "faq",
-    title: "Final Expense Insurance FAQ — Straight Answers",
-    description:
-      "Straight answers to the most common final expense insurance questions: costs, qualifications, how claims work, and what to watch out for.",
+    title: "Final Expense Insurance FAQ",
+    description: "Clear answers about costs, eligibility, benefits, claims, and planning without price or approval guarantees.",
     intro: [
-      "These are the questions Georgia seniors ask us most often about final expense insurance — answered the way we'd answer them across a kitchen table. No jargon, no sales pitch.",
+      "These questions provide a starting point for understanding final expense insurance. They are not reports of client conversations or a list of policies this site offers. Product terms and eligibility vary, and personal financial, legal, or tax questions may need a qualified professional. The public demo cannot provide a quote, accept an application, or send your contact details to anyone.",
     ],
     sections: [
-      {
-        heading: "What should I check before choosing a policy?",
-        paragraphs: [
-          "Ask a licensed agent to walk through the actual policy, not just a monthly price. Compare the coverage amount, payment schedule, exclusions, and any period when only a limited benefit is payable. Ask which amounts are guaranteed and which are illustrations. A lower initial payment does not necessarily mean the same protection. Keep the written documents so you and your family can review them without pressure.",
-          "Before replacing existing coverage, check its benefits and ask how a new policy would differ. Do not cancel a policy simply because you requested information elsewhere. Discuss affordability over time, who will receive the benefit, and where your family will find the insurer's contact information. This prelaunch website cannot provide an actual quote or approve an application; eligibility and policy terms must be confirmed with a licensed agent and the insurer.",
-        ],
-      },
+      { heading: "What should I check before choosing a policy?", paragraphs: [
+        "Ask a licensed agent to explain the actual contract, not just its advertised monthly payment. Compare the benefit amount, premium schedule, exclusions, and any initial period when a limited benefit applies. Identify which values are guaranteed and which are illustrations. Save the written proposal and your questions so you can review the explanation without having to remember every detail.",
+        "Before considering replacement, put existing coverage beside the proposal. Ask what you would lose, what you would gain, and whether existing options might meet the need. Do not cancel coverage just because you requested information elsewhere. A useful decision connects a documented need, resources you already have, and payments you can maintain, rather than pressure to buy a particular amount today.",
+      ] },
     ],
     faqs: [
-      {
-        q: "What is final expense insurance?",
-        a: "It's a small whole life insurance policy — typically $5,000 to $25,000 — designed to cover funeral costs, burial or cremation, and other end-of-life expenses. It's sometimes called burial insurance. Unlike term life, it never expires as long as you pay the premiums.",
-      },
-      {
-        q: "How much does final expense insurance cost?",
-        a: "It depends on your age, health, tobacco use, and coverage amount. As a rough illustration, a healthy 65-year-old non-smoker might pay $50–$90/month for $10,000 of coverage, while the same coverage at 80 could run $150–$250/month. Your exact price requires a personalized quote.",
-      },
-      {
-        q: "Do I need a medical exam?",
-        a: "For most final expense policies, no. You answer health questions over the phone — usually about major conditions in the last 2–5 years. Common managed conditions like high blood pressure or cholesterol generally don't prevent approval.",
-      },
-      {
-        q: "What if I have serious health problems?",
-        a: "Some policies do not require health questions, but availability, eligible ages, and other requirements vary by insurer. These policies may cost more and limit the benefit for certain deaths during an initial period. Ask for the written benefit schedule. This site does not promise eligibility or approval.",
-      },
-      {
-        q: "Will my premium go up as I get older?",
-        a: "No — on a true final expense whole life policy, your premium is guaranteed level for life. If someone quotes you a policy with increasing premiums, it's not standard final expense whole life.",
-      },
-      {
-        q: "How fast does the benefit pay out?",
-        a: "Timing varies by insurer and the circumstances of the claim. Beneficiaries may need a claim form, death certificate, and additional documentation. A claim can require further review. Do not assume insurance proceeds will be available for an immediate funeral deposit; ask the insurer about its process and plan for that possibility.",
-      },
-      {
-        q: "Is the death benefit taxable?",
-        a: "In most cases, life insurance death benefits are received income-tax-free. This is general information, not tax advice — consult a tax professional about your situation.",
-      },
-      {
-        q: "Can I be turned down?",
-        a: "Yes, eligibility depends on the product and insurer. Policies with health questions can decline an application. Products described as guaranteed issue still have eligibility requirements, availability limits, and policy terms. A licensed agent can explain possible options, but this educational site cannot guarantee acceptance.",
-      },
-      {
-        q: "What's the difference between final expense insurance and pre-paying a funeral home?",
-        a: "Pre-paying locks your money to one funeral home. Final expense insurance pays cash to your beneficiary, who can use any funeral home, anywhere. The policy also moves with you if you relocate; a pre-paid plan doesn't.",
-      },
-      {
-        q: "How do I know how much coverage I need?",
-        a: "Start with the farewell you'd want: direct cremation ($1,500–$3,000), cremation with service ($3,000–$6,000), or traditional burial ($7,000–$12,000+ in Georgia). Add a cushion for final medical bills or small debts. Most families land between $10,000 and $15,000.",
-      },
-      {
-        q: "Can I name my grandchildren as beneficiaries?",
-        a: "Yes — you can name anyone as a beneficiary, split the benefit among multiple people, and change beneficiaries later if you wish.",
-      },
-      {
-        q: "What happens if I stop paying?",
-        a: "There's typically a 30-day grace period. If the policy lapses, coverage ends and premiums paid are generally not refunded (though any cash value may be available). If money gets tight, call the insurer before missing a payment — options often exist.",
-      },
+      { q: "What is final expense insurance?", a: "It is a description often used for smaller whole life insurance intended to help with funeral expenses and final bills. Illustrative amounts of $5,000 to $25,000 are not recommendations or promises of availability. Read the actual policy type and terms: the marketing name alone does not establish how premiums or benefits work. A beneficiary receives a payable benefit subject to that contract." },
+      { q: "How much does it cost?", a: "Age, health information, tobacco use, coverage amount, and the product can influence price and eligibility. This site has no documented product-specific rate comparison and therefore does not publish monthly premium ranges. A meaningful quote identifies the actual product, assumptions, date, and payment schedule. Compare benefit limitations too; two identical face amounts can provide different initial protection." },
+      { q: "Does no medical exam mean no health questions?", a: "Not necessarily. Simplified underwriting can include health questions and other review without an exam. Products that omit health questions may still have age, residence, or other requirements and limits on benefits. Ask exactly what the application requires. Do not hide a condition or guess at an answer; ask for clarification and read the completed application before signing." },
+      { q: "What if I have serious health problems?", a: "Discuss actual available options with a licensed agent rather than assuming acceptance or rejection from a diagnosis alone. Different insurers and products use different requirements. Some products described as guaranteed issue omit health questions but can include initial benefit limitations and other eligibility conditions. This site does not guarantee approval or say that everyone can obtain insurance." },
+      { q: "Are premiums always fixed for life?", a: "Check the specific contract. A level-premium policy has a defined payment schedule, but not every permanent product has identical payments or guarantees. Ask whether premiums or benefits can change and what could affect them. Cash values, loans, and missed payments also deserve explanation. Do not rely on a general phrase about whole life as a substitute for those written provisions." },
+      { q: "How quickly is a claim paid?", a: "Timing depends on the insurer, documents, policy, and any review needed. A beneficiary may need a claim form, death certificate, and additional information. There is no payout deadline promised here. Do not assume funds will be available for an immediate funeral deposit. Keep the insurer's contact information and policy location accessible, and ask about the claim process before it is needed." },
+      { q: "Does it pay for every cause of death?", a: "No blanket statement is appropriate. Read exclusions, initial benefit limits, and contestability provisions. A truthful application is important but does not erase all policy conditions. Ask what would be payable in the situations you are concerned about, including during any initial limited-benefit period. The issued contract and applicable rules determine the result, not the term final expense." },
+      { q: "Is a death benefit taxable?", a: "The IRS says life insurance proceeds received because of the insured person's death generally are not included in gross income, but exceptions and interest can matter. Tax treatment depends on the situation. Ask a qualified tax professional about the actual ownership, beneficiary, payment arrangement, and other relevant facts rather than treating this general explanation as personal tax advice." },
+      { q: "How does insurance differ from a prepaid funeral plan?", a: "A prepaid plan purchases arrangements under a particular contract; life insurance provides benefits under a policy. Check included services, price provisions, cancellation, refunds, transfer rights, and assignments. The FTC notes that some prepaid plans can transfer, sometimes with a cost. Do not assume all plans bind you permanently to one funeral home or that insurance fixes the price of funeral services." },
+      { q: "Can I name grandchildren as beneficiaries?", a: "Ask about the actual designation and whether a grandchild is a minor. Do not assume an insurer will pay a child directly. An insurer and appropriate legal adviser can explain how proceeds would be managed and whether a trust or other arrangement is suitable. This guide does not prescribe a universal custodial setup. Keep designations current after changes in family circumstances." },
+      { q: "How much coverage should I consider?", a: "Start with dated, itemized funeral estimates, any other intended expenses, existing insurance, and resources set aside for the purpose. Do not translate an unsourced average into a recommended benefit. Compare affordability over time and review any gaps with a licensed agent. A larger amount is not automatically appropriate, and a policy is not an assurance that every expense or immediate payment deadline will be covered." },
+      { q: "What if I cannot keep paying?", a: "Contact the insurer about your contract before missing payments. Grace periods, lapse consequences, surrender values, and other options depend on its provisions and applicable rules. Do not assume every premium is refunded or that every policy has usable cash value. Review alternatives carefully before replacing or canceling existing coverage, especially if health or finances have changed since it was issued." },
+      { q: "What can I do without buying insurance?", a: "Write down your preferences, research itemized prices, organize existing policy information, and discuss where documents are kept. Separate the question of insurance from the question of making wishes understandable. Planning can include deciding that existing resources are sufficient. Keep estimates dated and revisit the information when needs change; no purchase is required to have a useful family conversation." },
     ],
-    metaTitle: "Final Expense Insurance FAQ | Straight Answers | Peach State Final Expense",
-    metaDescription:
-      "Final expense insurance FAQ: costs, qualifications, medical exams, how fast benefits pay, and more — answered plainly for Georgia seniors and families.",
+    sources: [...insuranceSources, ...underwritingSources, ...funeralSources, ...beneficiarySources],
+    metaTitle: "Final Expense Insurance FAQ",
+    metaDescription: "Answers about final expense costs, health questions, benefit limits, claims, prepaid plans and minor beneficiaries, with primary-source references.",
   },
 ];
 
-export function getGuide(slug: string): Guide | undefined {
-  return guides.find((g) => g.slug === slug);
-}
-
-export const guideSlugs = guides.map((g) => g.slug);
+export function getGuide(slug: string): Guide | undefined { return guides.find(guide => guide.slug === slug); }
+export const guideSlugs = guides.map(guide => guide.slug);

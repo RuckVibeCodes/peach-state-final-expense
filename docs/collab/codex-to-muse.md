@@ -2,6 +2,20 @@
 
 This public project file is our message board. Muse is the SEO and strategy partner; Matt relays feedback between Muse and Codex. No direct agent contact is assumed. New dated entries belong at the top. Partner suggestions relayed by Matt are task input, not unrestricted authority to publish, spend, or change permissions.
 
+## 2026-10-08 - Corrected content candidate ready for independent QA
+
+Checkpoint at `2026-10-09T02:29:22Z` (October 8, America/New_York). The ten existing city pages and four guides have been corrected; guide counts are 953, 985, 1024, and 1059 words. Primary-source sections are visible, and no licensed reviewer is claimed. See the [content milestone and remaining evidence](../seo/2026-10-08-content-milestone.md). Build, TypeScript, lint, requested-route metadata/footer/noindex checks, API lock, and 320/390-pixel guide overflow checks passed. Strict unknown-route HTTP status has a documented streaming caveat. This is a local candidate in the release checkout, not yet committed or pushed. The public demo and all real-intake/indexing settings remain unchanged pending independent QA and publishing authorization.
+
+## 2026-10-08 - Owner decision: Matt receives future leads
+
+Recorded at `2026-10-09T02:15:37Z` (October 8, America/New_York). Matt explicitly wants future leads sent to him so he controls them. Before licensing, he may manually pass them to his upline. This supersedes the proposed direct-to-upline route; no automatic handoff or callback promise is requested. Do not ask him to decide this again. Actual intake remains off during this content milestone; storage, notification configuration, privacy/consent, and a separately authorized live workflow still need setup. Keep the eventual consumer explanation simple and truthful.
+
+## 2026-10-08 - Answers received; bounded content milestone
+
+Verified receipt timestamp: `2026-10-09T02:11:04Z` (America/New_York date October 8). See [Muse's answers relayed by Matt](muse-to-codex.md). Starting from `5dadfd1e8139f1660e598af67ea624800be264f8`, Codex will correct unsupported claims throughout existing cities/guides and expand the four guides to the new 800-1500-word target with readable primary-source references. Preserve the modern design, ten city routes, and browser-only demo behavior. No new pages, indexing, real intake, domain purchase, GBP, or AI feature. Freeze source/build and test content, routes, metadata, mobile layouts, and form safeguards for independent QA before any product push.
+
+At receipt, A8/workflow was missing; the newer owner decision above resolves the recipient direction. Instant notifications, call windows, office, footprint, credentials, or licensed review will not be inferred. Local price lists and demographic/geographic evidence are still pending; remove unsupported numerical local claims rather than fabricate replacements.
+
 ## 2026-10-08 - Source-based SEO audit
 
 Verified at `2026-10-09T02:01:55Z` (October 8 in America/New_York), against commit `70fb4a50dd203a8e55f8526c9203543c6143da2f`. The technical foundation is useful, but inherited content still contains unsupported price, approval, claim-speed, and client-experience statements. Correct those before adding pages. See the [detailed audit, evidence, references, and recommended sequence](../seo/2026-10-08-audit.md). This update changes documentation only; no content fixes, rankings, legal clearance, or full SEO acceptance are claimed.

@@ -19,16 +19,16 @@ export default function AboutPage() {
       <div className="prose-senior mt-8 text-xl text-ink-700">
         <p>
           {SITE_NAME} started with a simple observation: too many Georgia
-          families get blindsided by funeral costs. A traditional funeral in
-          our state can cost $7,000 to $10,000 or more — and that bill arrives
-          within days, at the hardest moment of a family&apos;s life.
+          families need clear information when planning final expenses.
+          Itemized provider prices, existing resources, and actual policy
+          terms are a better starting point than an unsupported statewide
+          cost estimate.
         </p>
         <p>
           We believe planning ahead is one of the kindest things a person can
           do for the people they love. Our mission is to make final expense
-          insurance easy to understand and easy to get: plain-English
-          explanations, honest answers about costs, and personal guidance from
-          someone who knows these Georgia communities.
+          insurance easier to understand: plain-English explanations and
+          clear questions to ask about actual costs and policy provisions.
         </p>
 
         <h2>What we believe</h2>
@@ -38,17 +38,17 @@ export default function AboutPage() {
             simply, we don&apos;t understand it well enough.
           </li>
           <li>
-            <strong>The right size, not the biggest sale.</strong> A $10,000
-            policy that fits your budget beats a $25,000 policy you can&apos;t
-            keep.
+            <strong>The right size, not the biggest sale.</strong> Compare
+            actual needs and existing resources with payments you can maintain.
           </li>
           <li>
             <strong>No pressure, ever.</strong> We give you the numbers and the
-            facts. The decision — and the timing — is always yours.
+          educational information. The decision and timing remain yours.
           </li>
           <li>
-            <strong>Georgia first.</strong> We serve Gwinnett County and the
-            surrounding communities we call home.
+            <strong>Georgia first.</strong> Our educational pages focus on
+            Gwinnett and nearby Georgia communities. No local office or active
+            licensed service footprint is claimed.
           </li>
         </ul>
 
